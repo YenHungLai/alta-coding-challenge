@@ -3,14 +3,6 @@ import VueRouter from 'vue-router';
 import axios from 'axios';
 import store from './store';
 import App from './App';
-import {
-	MdButton,
-	MdContent,
-	MdTabs,
-	MdIcon,
-	MdField,
-	MdSnackbar
-} from 'vue-material/dist/components';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
@@ -21,13 +13,6 @@ import PurchaseTab from './components/PurchaseTab';
 import ContactTab from './components/ContactTab';
 
 Vue.use(VueRouter);
-Vue.use(MdButton);
-Vue.use(MdContent);
-Vue.use(MdTabs);
-Vue.use(MdIcon);
-Vue.use(MdField);
-Vue.use(MdSnackbar);
-
 Vue.use(VueMaterial);
 
 const router = new VueRouter({
