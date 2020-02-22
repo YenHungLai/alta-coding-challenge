@@ -6,14 +6,10 @@ const state = {
 };
 
 const getters = {
-	memberData: ({ memberData }) =>
-		Object.keys(memberData).map(key => ({ [key]: memberData[key] })),
-	contactData: ({ contactData }) =>
-		Object.keys(contactData).map(key => ({ [key]: contactData[key] })),
-	purchaseData: ({ purchaseData }) =>
-		Object.keys(purchaseData).map(key => ({ [key]: purchaseData[key] })),
-	feedbackData: ({ feedbackData }) =>
-		Object.keys(feedbackData).map(key => ({ [key]: feedbackData[key] }))
+	memberData: ({ memberData }) => memberData,
+	contactData: ({ contactData }) => contactData,
+	purchaseData: ({ purchaseData }) => purchaseData,
+	feedbackData: ({ feedbackData }) => feedbackData
 };
 
 const actions = {};

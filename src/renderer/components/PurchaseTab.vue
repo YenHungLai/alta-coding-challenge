@@ -9,12 +9,7 @@
 				:key="field.name"
 			>
 				<label id="input-label" v-text="field.label"></label>
-				<md-input
-					v-model="inputs[field.name]"
-					:required="field.isRequired"
-					:type="field.type"
-					min="1"
-				></md-input>
+				<md-input v-model="inputs[field.name]" :required="field.isRequired" :type="field.type" min="1"></md-input>
 				<span class="md-error">this field is required</span>
 			</md-field>
 			<md-field :class="hasError ? 'md-invalid' : null">
@@ -27,7 +22,10 @@
 		</div>
 		<div class="total">
 			<md-icon>attach_money</md-icon>
-			<span class="equal">= <strong v-text="total"></strong></span>
+			<span class="equal">
+				=
+				<strong v-text="total"></strong>
+			</span>
 		</div>
 		<md-button id="submit" @click="submit" class="md-raised md-accent">check out</md-button>
 		<Snackbar @close="closeSnackbar" :showSnackbar="showSnackbar" />
@@ -35,19 +33,19 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import Snackbar from './Snackbar';
+import { mapGetters, mapMutations } from "vuex";
+import Snackbar from "./Snackbar";
 
 export default {
-	name: 'PurchaseTab',
+	name: "PurchaseTab",
 	components: { Snackbar },
 	data: () => ({
 		fields: [
 			{
-				label: 'amount',
-				name: 'amount',
+				label: "amount",
+				name: "amount",
 				isRequired: true,
-				type: 'number'
+				type: "number"
 			}
 		],
 		pricing: {
@@ -56,7 +54,7 @@ export default {
 		},
 		inputs: {
 			amount: 1,
-			type: 'A'
+			type: "A"
 		},
 		hasError: false,
 		showSnackbar: false
@@ -67,18 +65,18 @@ export default {
 				this.hasError = true;
 			} else {
 				this.hasError = false;
-				this.setPurchaseData(this.inputs);
+				this.setPurchaseData({ ...this.inputs, total: this.total });
 				this.showSnackbar = true;
 			}
 		},
 		closeSnackbar(payload) {
 			this.showSnackbar = payload;
 		},
-		...mapMutations(['setPurchaseData'])
+		...mapMutations(["setPurchaseData"])
 	},
 	computed: {
 		total() {
-			return '$' + this.inputs.amount * this.pricing[this.inputs.type];
+			return "$" + this.inputs.amount * this.pricing[this.inputs.type];
 		}
 	}
 };
@@ -102,7 +100,7 @@ export default {
 	text-transform: capitalize;
 }
 
-label[for='hear-from']::first-letter {
+label[for="hear-from"]::first-letter {
 	text-transform: capitalize;
 }
 

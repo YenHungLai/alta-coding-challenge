@@ -109,16 +109,13 @@ export default {
 
 .form-container {
 	display: grid;
-	grid-template-columns: repeat(2, 300px);
+	grid-template-columns: repeat(2, 1fr);
 	grid-column-gap: 15px;
 }
 
+label[for="hear-from"]::first-letter,
 #input-label,
 #comments {
-	text-transform: capitalize;
-}
-
-label[for="hear-from"]::first-letter {
 	text-transform: capitalize;
 }
 
@@ -133,5 +130,18 @@ label[for="hear-from"]::first-letter {
 #submit {
 	width: 30%;
 	margin: auto;
+}
+
+@media screen and (max-width: 500px) {
+	#firstName,
+	#lastName,
+	#emailAddress,
+	#phoneNumber {
+		grid-column: 1/3;
+	}
+
+	.form-container {
+		padding: 0 5px;
+	}
 }
 </style>

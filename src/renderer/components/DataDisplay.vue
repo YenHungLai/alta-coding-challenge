@@ -1,48 +1,47 @@
 <template>
-	<div class="display-container">
-		<md-list>
+	<div class="display-container" v-if="showData">
+		<md-list md-expand-single="true">
 			<md-list-item md-expand>
-				<md-icon>whatshot</md-icon>
-				<span class="md-list-item-text">News</span>
-
+				<md-icon>card_membership</md-icon>
+				<span class="md-list-item-text">member data</span>
 				<md-list slot="md-expand">
-					<md-list-item class="md-inset">World</md-list-item>
-					<md-list-item class="md-inset">Europe</md-list-item>
-					<md-list-item class="md-inset">South America</md-list-item>
+					<md-list-item class="md-inset" v-for="key in Object.keys(memberData)" :key="key">
+						<strong>{{key}}:&nbsp;</strong>
+						{{memberData[key]}}
+					</md-list-item>
 				</md-list>
 			</md-list-item>
 
 			<md-list-item md-expand>
-				<md-icon>videogame_asset</md-icon>
-				<span class="md-list-item-text">Games</span>
-
+				<md-icon>attach_money</md-icon>
+				<span class="md-list-item-text">puchase</span>
 				<md-list slot="md-expand">
-					<md-list-item class="md-inset">Console</md-list-item>
-					<md-list-item class="md-inset">PC</md-list-item>
-					<md-list-item class="md-inset">Phone</md-list-item>
+					<md-list-item class="md-inset" v-for="key in Object.keys(purchaseData)" :key="key">
+						<strong>{{key}}:&nbsp;</strong>
+						{{purchaseData[key]}}
+					</md-list-item>
 				</md-list>
 			</md-list-item>
 
 			<md-list-item md-expand>
-				<md-icon>video_library</md-icon>
-				<span class="md-list-item-text">Video</span>
-
+				<md-icon>phone</md-icon>
+				<span class="md-list-item-text">contact us</span>
 				<md-list slot="md-expand">
-					<md-list-item class="md-inset">Humor</md-list-item>
-					<md-list-item class="md-inset">Music</md-list-item>
-					<md-list-item class="md-inset">Movies</md-list-item>
-					<md-list-item class="md-inset">TV Shows</md-list-item>
+					<md-list-item class="md-inset" v-for="key in Object.keys(contactData)" :key="key">
+						<strong>{{key}}:&nbsp;</strong>
+						{{contactData[key]}}
+					</md-list-item>
 				</md-list>
 			</md-list-item>
 
 			<md-list-item md-expand>
-				<md-icon>shopping_basket</md-icon>
-				<span class="md-list-item-text">Shop</span>
+				<md-icon>feedback</md-icon>
+				<span class="md-list-item-text">feedback</span>
 				<md-list slot="md-expand">
-					<md-list-item class="md-inset">Humor</md-list-item>
-					<md-list-item class="md-inset">Music</md-list-item>
-					<md-list-item class="md-inset">Movies</md-list-item>
-					<md-list-item class="md-inset">TV Shows</md-list-item>
+					<md-list-item class="md-inset" v-for="key in Object.keys(feedbackData)" :key="key">
+						<strong>{{key}}:&nbsp;</strong>
+						{{feedbackData[key]}}
+					</md-list-item>
 				</md-list>
 			</md-list-item>
 		</md-list>
@@ -50,18 +49,19 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
-	name: 'DataDisplay',
+	name: "DataDisplay",
 	data() {
 		return {};
 	},
 	computed: {
-		...mapGetters(['memberData']),
-		...mapGetters(['contactData']),
-		...mapGetters(['purchaseData']),
-		...mapGetters(['feedbackData'])
+		...mapGetters(["memberData"]),
+		...mapGetters(["contactData"]),
+		...mapGetters(["purchaseData"]),
+		...mapGetters(["feedbackData"]),
+		...mapGetters(["showData"])
 	}
 };
 </script>
@@ -69,8 +69,25 @@ export default {
 <style scoped>
 .display-container {
 	position: absolute;
-	top: 80px;
-	right: 10px;
-	width: 300px;
+	left: 10px;
+	bottom: 90px;
+	width: 400px;
+	animation: fadeIn 0.5s linear;
+	z-index: 1000;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.display-container {
+		display: none;
+	}
 }
 </style>
