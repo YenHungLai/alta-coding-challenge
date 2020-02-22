@@ -6,7 +6,14 @@ const state = {
 };
 
 const getters = {
-	getCount: state => state.count
+	memberData: ({ memberData }) =>
+		Object.keys(memberData).map(key => ({ [key]: memberData[key] })),
+	contactData: ({ contactData }) =>
+		Object.keys(contactData).map(key => ({ [key]: contactData[key] })),
+	purchaseData: ({ purchaseData }) =>
+		Object.keys(purchaseData).map(key => ({ [key]: purchaseData[key] })),
+	feedbackData: ({ feedbackData }) =>
+		Object.keys(feedbackData).map(key => ({ [key]: feedbackData[key] }))
 };
 
 const actions = {};
