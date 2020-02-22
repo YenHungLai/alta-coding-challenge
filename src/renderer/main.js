@@ -8,8 +8,10 @@ import {
 	MdContent,
 	MdTabs,
 	MdIcon,
-	MdField
+	MdField,
+	MdSnackbar
 } from 'vue-material/dist/components';
+import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
 // Components
@@ -24,6 +26,9 @@ Vue.use(MdContent);
 Vue.use(MdTabs);
 Vue.use(MdIcon);
 Vue.use(MdField);
+Vue.use(MdSnackbar);
+
+Vue.use(VueMaterial);
 
 const router = new VueRouter({
 	routes: [

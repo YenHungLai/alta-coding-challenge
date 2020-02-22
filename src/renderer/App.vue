@@ -14,7 +14,7 @@ import RootContainer from "./components/RootContainer";
 export default {
 	name: "alta-coding-challenge",
 	components: { RootContainer },
-	computed: mapGetters(["getCount"]),
+	computed: mapGetters(["showSnackbar"]),
 	methods: {
 		...mapMutations(["increment"])
 	}

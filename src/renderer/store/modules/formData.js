@@ -1,5 +1,8 @@
 const state = {
-	count: 10
+	memberData: {},
+	contactData: {},
+	purchaseData: {},
+	feedbackData: {}
 };
 
 const getters = {
@@ -9,7 +12,10 @@ const getters = {
 const actions = {};
 
 const mutations = {
-	increment: state => state.count++
+	setMemberData: (state, payload) => (state.memberData = payload),
+	setContactData: (state, payload) => (state.contactData = payload),
+	setPurchaseData: (state, payload) => (state.purchaseData = payload),
+	setFeedbackData: (state, payload) => (state.feedbackData = payload)
 };
 
 export default {
