@@ -1,6 +1,6 @@
 # alta-coding-challenge
 
-> Alta coding challenge
+> Created a desktop application using electron-vue and vuex.
 
 #### Build Setup
 
